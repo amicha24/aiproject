@@ -23,7 +23,7 @@ plt.plot(range(2,10),y)
 plt.xlabel('No of Clusters')
 plt.ylabel('Silhouette_avg')
 plt.title('Silhoutte Score for different clusters')
-
+plt.savefig("sil.png")
 
 
 
@@ -43,7 +43,7 @@ plt.title('Normed Missing Values Count', fontsize=20)
 plt.xlabel('Normed (%) count', fontsize=20)
 plt.ylabel('Column name', fontsize=20)
 plt.xticks(rotation=60)
-plt.show()
+plt.savefig("val.png")
 
 #df = df[pd.notnull(df['Style'])] #use only samples with valid Style col
 
@@ -58,7 +58,7 @@ sns.regplot(df_abv_color['ABV'],df_abv_color['Color'])
 plt.title('ABV and Color relation', fontsize=22)
 plt.xlabel('ABV', fontsize=20)
 plt.ylabel('Color', fontsize=20)
-plt.show()
+plt.savefig("ABV-col.png")
 
 # Generate clusters from K-Means
 km = KMeans(3)
@@ -81,11 +81,11 @@ db_clusters = db.fit_predict(df)
 
 plt.title("Beer Clusters from K-Means")
 plt.scatter(df['ABV'], df['Color'], c=km_clusters,s=50, cmap='tab20b')
-plt.show()
+plt.savefig("kmeans.png")
 
 plt.title("Beer Clusters from DBSCAN")
 plt.scatter(df['ABV'], df['Color'], c=db_clusters,s=50, cmap='tab20b')
-plt.show()
+plt.savefig("DB.png")
 
 # Calculate Silhouette Scores
 print("Silhouette Scores for Beer Dataset:\n")
